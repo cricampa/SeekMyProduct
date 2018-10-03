@@ -22,11 +22,17 @@
 
     <div id="map" style="height: 400px"></div>
     <script>
-      var map = L.Wrld.map("map", "715266183d2b67db6051ea0ac41b0d54", {
-        center: [56.4602727, -2.9786788],
-        zoom: 18,
-        indoorsEnabled: true
-      });
+      var map = L.eeGeo.map("map", "your_api_key_here", {
+                center: [46.02340894491397, 8.917223938209821],
+                zoom: 16,
+                indoorsEnabled: true,
+                coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d_2018_10_03_15_17_19/webgl_manifest.bin.gz"
+              });
+      //var map = L.Wrld.map("map", "715266183d2b67db6051ea0ac41b0d54", {
+      //  center: [56.4602727, -2.9786788],
+      //  zoom: 18,
+      //  indoorsEnabled: true
+      //});
       var indoorControl = new WrldIndoorControl("widget-container", map);
 
       var routeLines = [];
