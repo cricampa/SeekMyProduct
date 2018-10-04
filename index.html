@@ -20,14 +20,22 @@
       <button type="button" onclick="getRoute()">Get Route</button>
     </div>
 
-    <div id="map" style="height: 400px"></div>
+    <div id="map" style="height: 600px"></div>
     <script>
       var map = L.eeGeo.map("map", "e41aa6463b3546ab7ad4ac712ec43291", {
                 center: [46.02340894491397, 8.917223938209821],
                 zoom: 16,
                 indoorsEnabled: true,
-                coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d_2018_10_03_15_17_19/webgl_manifest.bin.gz"
+                coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e_2018_10_04_11_47_07/webgl_manifest.bin.gz"
               });
+      
+      //var map = L.eeGeo.map("map", "e41aa6463b3546ab7ad4ac712ec43291", {
+      //          center: [46.02340894491397, 8.917223938209821],
+      //          zoom: 16,
+      //          indoorsEnabled: true,
+      //          coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d_2018_10_03_15_17_19/webgl_manifest.bin.gz"
+      //        });
+      
       //var map = L.Wrld.map("map", "715266183d2b67db6051ea0ac41b0d54", {
       //  center: [56.4602727, -2.9786788],
       //  zoom: 18,
