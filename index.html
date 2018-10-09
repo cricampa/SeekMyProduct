@@ -42,7 +42,25 @@
       //  indoorsEnabled: true
       //});
       var indoorControl = new WrldIndoorControl("widget-container", map);
-
+      
+      
+      /* inserito 1 - 2 marker*/
+      //startpoint nel metodo getRoute
+      var marker_device = L.marker([46.0233247, 8.9169195], {        
+        title: "Device",
+        indoorMapId: "intercontinental_hotel_8628",
+        indoorMapFloorId: 1
+      }).addTo(map);      
+      
+      //endPoint nel metodo getRoute
+       var marker_articolo = L.marker([46.0233693, 8.9169136], {        
+        title: "Articolo",
+        indoorMapId: "intercontinental_hotel_8628",
+        indoorMapFloorId: 1
+      }).addTo(map);  
+      
+      /*fine inserito 1*/
+      
       var routeLines = [];
       var _onRoutesLoaded = function(routes) {
           // Each step in the route will be on a single floor.
@@ -59,8 +77,9 @@
       }
 
       var getRoute = function() {
-          var startPoint = [-2.978629, 56.46024, 0];
-          var endPoint = [-2.9783117, 56.4600344, 2]; 
+        //long , lat, z_order->(floor)
+          var startPoint = [46.0233247, 8.9169195, 0];
+          var endPoint = [46.0233693, 8.9169136, 0]; 
 
           map.routes.getRoute([startPoint, endPoint], _onRoutesLoaded);
       }
