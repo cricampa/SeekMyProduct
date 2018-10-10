@@ -44,22 +44,65 @@
       var indoorControl = new WrldIndoorControl("widget-container", map);
       
       
-      /* inserito 1 - 2 marker*/
-      //startpoint nel metodo getRoute
-      var marker_device = L.marker([46.0233247, 8.9169195], {        
-        title: "Device",
-        indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e",
-        indoorMapFloorId: 0
-      }).addTo(map);      
       
-      //endPoint nel metodo getRoute
-       var marker_articolo = L.marker([46.0233693, 8.9169136], {        
-        title: "Articolo",
-        indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e",
-        indoorMapFloorId: 0
-      }).addTo(map);  
       
-      /*fine inserito 1*/
+      
+      /*******************INIZIO NEW*********************/      
+       var marker;
+      var moveIndoors = function(e) {
+        map.indoors.enter("EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e");
+        map.indoors.setFloor(0);
+        
+        // create marker 
+        marker = L.marker([ 46.02340894491397, 8.917223938209821 ], {
+          indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e", 
+          indoorMapFloorId: 0}).addTo(map);
+        
+
+            /*******************INIZIO OLD*********************/      
+            /* inserito 1 - 2 marker*/
+            //startpoint nel metodo getRoute
+            var marker_device = L.marker([46.0233247, 8.9169195], {        
+              title: "Device",
+              indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e",
+              indoorMapFloorId: 0
+            }).addTo(map);      
+
+            //endPoint nel metodo getRoute
+             var marker_articolo = L.marker([46.0233693, 8.9169136], {        
+              title: "Articolo",
+              indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e",
+              indoorMapFloorId: 0
+            }).addTo(map);  
+           /*******************FINE OLD*********************/      
+
+        
+        
+        
+      }
+      map.on("initialstreamingcomplete", moveIndoors);
+      map.indoors.on("indoormapenter", function (e) {
+        // set a timeout which moves the marker after 5 seconds
+        //muovo solo il marker_device verso il marker_articolo: lo avvicino
+        setTimeout(function () {
+            console.log("moving marker")
+            marker.setLatLng([ 46.023114, 8.916983 ])
+          
+          marker_device.setLatLng([ 46.0233343, 8.9169190 ])
+          marker_articolo.setLatLng([ 46.023114, 8.916983 ])
+        }, 5000);
+        
+        //muovo solo il marker_device verso il marker_articolo: lo avvicino ancora
+        setTimeout(function () {
+            console.log("moving marker")
+            marker.setLatLng([ 46.023114, 8.916983 ])
+          marker_device.setLatLng([ 46.0233518, 8.9169109 ])
+          marker_articolo.setLatLng([ 46.023114, 8.916983 ])
+        }, 7000);
+      });
+      
+      /*******************FINE NEW*********************/
+      
       
       var routeLines = [];
       var _onRoutesLoaded = function(routes) {
