@@ -32,13 +32,15 @@
       var indoorControl = new WrldIndoorControl("widget-container", map);
       
       /*******************INIZIO NEW*********************/      
-      var marker;
       var marker_device;
-      var marker_articolo;
+      var marker_article;
       
       var updateDevice = function(lat, lon) {
-          alert('new position lat:' + lat + ' lon:' + lon) 
           marker_device.setLatLng([ lat, lon ])
+      }
+      
+      var updateArticle = function(lat, lon) {
+          marker_article.setLatLng([ lat, lon ])
       }
       
       var moveIndoors = function(e) {
@@ -61,7 +63,7 @@
             }).addTo(map);      
 
             //endPoint nel metodo getRoute
-            marker_articolo = L.marker([46.0233693, 8.9169136], {        
+            marker_article = L.marker([46.0233693, 8.9169136], {        
               title: "Articolo",
               indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e",
               indoorMapFloorId: 0
@@ -71,21 +73,21 @@
       map.on("initialstreamingcomplete", moveIndoors);
       map.indoors.on("indoormapenter", function (e) {
         // set a timeout which moves the marker after 5 seconds
-        //muovo solo il marker_device verso il marker_articolo: lo avvicino
+        //muovo solo il marker_device verso il marker_article: lo avvicino
         //setTimeout(function () {
         //    console.log("moving marker")
         //    marker.setLatLng([ 46.023114, 8.916983 ])
           
         //  marker_device.setLatLng([ 46.0233343, 8.9169190 ])
-        //  marker_articolo.setLatLng([ 46.023114, 8.916983 ])
+        //  marker_article.setLatLng([ 46.023114, 8.916983 ])
         //}, 5000);
         
-        //muovo solo il marker_device verso il marker_articolo: lo avvicino ancora
+        //muovo solo il marker_device verso il marker_article: lo avvicino ancora
         /*setTimeout(function () {
             console.log("moving marker")
             marker.setLatLng([ 46.023114, 8.916983 ])
           marker_device.setLatLng([ 46.0233518, 8.9169109 ])
-          marker_articolo.setLatLng([ 46.023114, 8.916983 ])
+          marker_article.setLatLng([ 46.023114, 8.916983 ])
         }, 7000);
         */
       });
