@@ -22,13 +22,21 @@
 
     <div id="map" style="height: 500px;"></div>
     <script>
+      
+       var map = L.eeGeo.map("map", "e41aa6463b3546ab7ad4ac712ec43291", {
+                center: [46.02340894491397, 8.917223938209821],
+                zoom: 16,
+                indoorsEnabled: true,
+                coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e_2018_10_12_22_34_21/webgl_manifest.bin.gz"
+              });
+     /*
       var map = L.eeGeo.map("map", "e41aa6463b3546ab7ad4ac712ec43291", {
                 center: [46.02340894491397, 8.917223938209821],
                 zoom: 16,
                 indoorsEnabled: true,
                 coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e_2018_10_04_11_47_07/webgl_manifest.bin.gz"
               });
-      
+      */
       var indoorControl = new WrldIndoorControl("widget-container", map);
       
       /*******************INIZIO NEW*********************/      
