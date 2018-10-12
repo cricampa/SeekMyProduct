@@ -29,34 +29,24 @@
                 coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e_2018_10_04_11_47_07/webgl_manifest.bin.gz"
               });
       
-      //var map = L.eeGeo.map("map", "e41aa6463b3546ab7ad4ac712ec43291", {
-      //          center: [46.02340894491397, 8.917223938209821],
-      //          zoom: 16,
-      //          indoorsEnabled: true,
-      //          coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d_2018_10_03_15_17_19/webgl_manifest.bin.gz"
-      //        });
-      
-      //var map = L.Wrld.map("map", "715266183d2b67db6051ea0ac41b0d54", {
-      //  center: [56.4602727, -2.9786788],
-      //  zoom: 18,
-      //  indoorsEnabled: true
-      //});
       var indoorControl = new WrldIndoorControl("widget-container", map);
-      
-      
-      
-      
       
       /*******************INIZIO NEW*********************/      
       var marker;
       var marker_device;
       var marker_articolo;
+      
+      var updateDevice = function(lat, lon) {
+          alert('new position lat:' + lat + ' lon:' + lon) 
+          marker_device.setLatLng([ lat, lon ])
+      }
+      
       var moveIndoors = function(e) {
-      map.indoors.enter("EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e");
-      map.indoors.setFloor(0);
+          map.indoors.enter("EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e");
+          map.indoors.setFloor(0);
         
-        // create marker 
-      marker = L.marker([ 46.02340894491397, 8.917223938209821 ], {
+          // create marker 
+          marker = L.marker([ 46.02340894491397, 8.917223938209821 ], {
           indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e", 
           indoorMapFloorId: 0}).addTo(map);
         
@@ -82,21 +72,22 @@
       map.indoors.on("indoormapenter", function (e) {
         // set a timeout which moves the marker after 5 seconds
         //muovo solo il marker_device verso il marker_articolo: lo avvicino
-        setTimeout(function () {
-            console.log("moving marker")
-            marker.setLatLng([ 46.023114, 8.916983 ])
+        //setTimeout(function () {
+        //    console.log("moving marker")
+        //    marker.setLatLng([ 46.023114, 8.916983 ])
           
-          marker_device.setLatLng([ 46.0233343, 8.9169190 ])
-          marker_articolo.setLatLng([ 46.023114, 8.916983 ])
-        }, 5000);
+        //  marker_device.setLatLng([ 46.0233343, 8.9169190 ])
+        //  marker_articolo.setLatLng([ 46.023114, 8.916983 ])
+        //}, 5000);
         
         //muovo solo il marker_device verso il marker_articolo: lo avvicino ancora
-        setTimeout(function () {
+        /*setTimeout(function () {
             console.log("moving marker")
             marker.setLatLng([ 46.023114, 8.916983 ])
           marker_device.setLatLng([ 46.0233518, 8.9169109 ])
           marker_articolo.setLatLng([ 46.023114, 8.916983 ])
         }, 7000);
+        */
       });
       
       /*******************FINE NEW*********************/
