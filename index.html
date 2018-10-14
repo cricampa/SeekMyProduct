@@ -24,6 +24,9 @@
     <script>
       
 
+      //NB:
+      //cambiare anche la variabile var map se si cambia mappa!!!
+      //cambiare in tutto il file i Map id se si cambia la mappa, copiando quello che è presente nella mail
       
       var map = L.eeGeo.map("map", "e41aa6463b3546ab7ad4ac712ec43291", {
                 center: [46.02340894491397, 8.917223938209821],
@@ -60,13 +63,18 @@
           marker_article.setLatLng([ lat, lon ])
       }
       
+      
+      //cambiare i Map Id se si cambia mappa
       var moveIndoors = function(e) {
-          map.indoors.enter("EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e");
+          //map.indoors.enter("EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e");
+          map.indoors.enter("EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d"),
           map.indoors.setFloor(0);
         
           // create marker 
           marker = L.marker([ 46.02340894491397, 8.917223938209821 ], {
-          indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e", 
+          //indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e", 
+          indoorMapId: "EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d", 
+            
           indoorMapFloorId: 0}).addTo(map);
         
 
@@ -75,6 +83,7 @@
             //startpoint nel metodo getRoute
             marker_device = L.marker([46.0233247, 8.9169195], {        
               title: "Device",
+              //indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e",
               indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e",
               indoorMapFloorId: 0
             }).addTo(map);      
@@ -82,7 +91,7 @@
             //endPoint nel metodo getRoute
             marker_article = L.marker([46.0233693, 8.9169136], {        
               title: "Articolo",
-              indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e",
+              indoorMapId: "EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d",
               indoorMapFloorId: 0
             }).addTo(map);  
            /*******************FINE OLD*********************/      
