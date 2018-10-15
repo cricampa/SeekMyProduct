@@ -55,10 +55,6 @@
       var marker_device;
       var marker_article;
       
-      function myFunction(p1, p2) {
-            alert (p1 * p2);              // The function returns the product of p1 and p2
-      }
-      
       var updateDevice = function(lat, lon) 
       {
         try {
@@ -69,7 +65,11 @@
       }
       
       var updateArticle = function(lat, lon) {
-          marker_article.setLatLng([ lat, lon ])
+        try {
+          marker_article.setLatLng([ lat, lon ]);
+          }catch(err){
+          alert(err);
+        }
       }
       
       
@@ -80,10 +80,10 @@
           map.indoors.setFloor(0);
         
           // create marker 
-          marker = L.marker([ 46.02340894491397, 8.917223938209821 ], {
+          //marker = L.marker([ 46.02340894491397, 8.917223938209821 ], {
           //indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e", 
-          indoorMapId: "EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d", 
-          indoorMapFloorId: 0}).addTo(map);
+          //indoorMapId: "EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d", 
+          //indoorMapFloorId: 0}).addTo(map);
         
 
             /*******************INIZIO OLD*********************/      
