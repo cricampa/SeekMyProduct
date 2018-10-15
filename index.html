@@ -55,8 +55,12 @@
       var marker_device;
       var marker_article;
       
-      var updateDevice = function(lat, lon) {
-          marker_device.setLatLng([ lat, lon ])
+      var updateDevice = function(lat, lon) 
+        try {
+          marker_device.setLatLng([ lat, lon ]);
+        }catch(err){
+          alert(err);
+        }
       }
       
       var updateArticle = function(lat, lon) {
