@@ -27,13 +27,20 @@
       //NB:
       //cambiare anche la variabile var map se si cambia mappa!!!
       //cambiare in tutto il file i Map id se si cambia la mappa, copiando quello che è presente nella mail
-      
+      var map = L.eeGeo.map("map", "e41aa6463b3546ab7ad4ac712ec43291", {
+                center: [46.02340894491397, 8.917223938209821],
+                zoom: 16,
+                indoorsEnabled: true,
+                coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-0a2b057b-ab52-42cc-add1-a16bd92ca1b0_2018_10_22_13_13_40/webgl_manifest.bin.gz"
+              });
+      /*
       var map = L.eeGeo.map("map", "e41aa6463b3546ab7ad4ac712ec43291", {
                 center: [46.02340894491397, 8.917223938209821],
                 zoom: 16,
                 indoorsEnabled: true,
                 coverageTreeManifest: "https://webgl-cdn1.wrld3d.com/chunk/indoor_maps/api_requests/EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d_2018_10_14_10_45_42/webgl_manifest.bin.gz"
               });
+              */
        /*    
              var map = L.eeGeo.map("map", "e41aa6463b3546ab7ad4ac712ec43291", {
                 center: [46.02340894491397, 8.917223938209821],
@@ -76,7 +83,8 @@
       //cambiare i Map Id se si cambia mappa
       var moveIndoors = function(e) {
           //map.indoors.enter("EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e");
-          map.indoors.enter("EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d"),
+          //map.indoors.enter("EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d"),
+          map.indoors.enter("EIM-0a2b057b-ab52-42cc-add1-a16bd92ca1b0"),
           map.indoors.setFloor(0);
         
           // create marker 
@@ -92,14 +100,16 @@
             marker_device = L.marker([46.0233247, 8.9169195], {        
               title: "Device",
               //indoorMapId: "EIM-dc1b9163-9da5-4a97-b56f-6e0aec97b38e",
-              indoorMapId: "EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d",
+              //indoorMapId: "EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d",
+              indoorMapId: "EIM-0a2b057b-ab52-42cc-add1-a16bd92ca1b0",
               indoorMapFloorId: 0
             }).addTo(map);      
 
             //endPoint nel metodo getRoute
             marker_article = L.marker([46.0233693, 8.9169136], {        
               title: "Articolo",
-              indoorMapId: "EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d",
+              //indoorMapId: "EIM-fd8259d3-fa88-4a5e-ae2c-111e8379ca5d",
+              indoorMapId: "EIM-0a2b057b-ab52-42cc-add1-a16bd92ca1b0",
               indoorMapFloorId: 0
             }).addTo(map);  
            /*******************FINE OLD*********************/      
