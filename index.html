@@ -154,11 +154,11 @@
           }
       }
 
-      
+      //attenzione: occorre invertire l'ordine delle coordinate rispetto a sopra!!!
       var getRoute = function() {
         //long , lat, z_order->(floor)
-          var startPoint = [46.0233247, 8.9169195, 0];
-          var endPoint = [46.0233693, 8.9169136, 0]; 
+          var startPoint = [8.9169195, 46.0233247, 0];
+          var endPoint = [8.9169136, 46.0233693, 0]; 
 
           map.routes.getRoute([startPoint, endPoint], _onRoutesLoaded);
       }
