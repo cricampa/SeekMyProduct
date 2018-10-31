@@ -64,11 +64,12 @@
       
       var updateDevice = function(lat, lon) 
       {
-        try {
-          marker_device.setLatLng([ lat, lon ]);
-        }catch(err){
-          alert(err);
-        }
+        if(marker_device !== undefined)
+          try {
+            marker_device.setLatLng([ lat, lon ]);
+          }catch(err){
+            alert(err);
+          }
       }
       
       var updateArticle = function(lat, lon) {
